@@ -1,12 +1,12 @@
-const { Client } = require('mysql2');
+const client = require('mysql2');
 require('dotenv').config();
 
 const client = new Client({
-  host: process.env.PGHOST,
-  user: process.env.PGUSER,
-  password: process.env.PGPASSWORD,
-  database: process.env.PGDATABASE,
-  port: process.env.PGPORT || 5432,
+  host: process.env.HOST,
+  user: process.env.USER,
+  password: process.env.PASSWORD,
+  database: process.env.DATABASE,
+  port: process.env.PORT || 5432,
   ssl: {
     rejectUnauthorized: false,
   },
