@@ -1,0 +1,79 @@
+* {
+    margin: 0;
+}
+
+body{
+    background: linear-gradient(to right, rgb(3, 217, 255), rgb(8, 3, 90));
+}
+h3{
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+.BarraLogin{
+    display: flex;
+    flex-direction: column;
+    width: 67vb;
+    height: 83vh;
+    border-radius: 15px;
+    background-color: rgb(255, 255, 255);
+    justify-content: space-around;
+    align-items: center;
+}
+.BarraLoginCen{
+    display: flex;
+    justify-content: center;
+    margin-top: 4%;
+}
+#icon{
+    margin-top: 15px;
+    height: 75px;
+    width: 75px;
+}
+.senaiLogin{
+    margin-top: 37px;
+}
+.infosParaLogin{
+    margin-top: 50px;
+    width: 300px;
+    margin-bottom: 10px;
+}
+.esqueceuSenha{
+margin-top: 15px;
+}
+.botaoLogin{
+    margin-top: 5vh;
+    border: white;
+    border-radius: 10px;
+    color: white;
+    background-color: rgb(250, 23, 23);
+    width: 300px;
+    height: 45px;
+}
+.iconEsenai{
+    display: flex;
+    justify-content: center;
+    margin-right: 10px;
+    margin-bottom: 10px;
+}
+#email{
+     border: white; 
+}
+#senha{
+     border: white; 
+    width: 130px;
+}
+.esqueceuSenhaEBotaoLogin{
+    margin: 10px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+.subTitulos{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+.emailText{
+    font-size: larger;
+}
