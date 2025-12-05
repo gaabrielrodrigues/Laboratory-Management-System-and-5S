@@ -21,8 +21,16 @@ header{
     height: 43px;
     width: 43px;
 }
-.atalhos{
+.nav{
+    gap: 60px;
     display: flex;
     flex-direction: row;
+    justify-content: space-between;
+}
+.direita-nav{
+    width: 450px;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
     justify-content: space-between;
 }
