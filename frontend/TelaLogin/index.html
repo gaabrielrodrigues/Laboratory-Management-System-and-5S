@@ -1,10 +1,11 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="pt-BR">
 
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="../global.css">
     <title>Tela Login</title>
 </head>
 
@@ -12,48 +13,56 @@
     <section class="BarraLoginCen">
         <div class="BarraLogin">
             <div class="iconEsenai">
-                <img id="icon" src="./icon.png" alt="">
-                <h3 class="senaiLogin">SENAI</h3>
+                <img id="icon" src="https://www.imagemhost.com.br/images/2024/11/22/Logo-novo-SENAI_-sem-slogan_755X325.md.png" alt="Ícone do SENAI">
+
             </div>
+
             <div class="subTitulos">
                 <h2>Bem-vindo ao Sistema 5S</h2>
                 <p>Acesse sua conta para gerenciar os laboratórios.</p>
             </div>
-            
 
             <div class="infosParaLogin">
-                <div class="AreaEmailLogin">
-                    <label for="email" class="emailText">Email</label>
-                    <div class="input">
-                        <span class="icon">👤</span>
-                        <input type="email" id="email" name="email" placeholder="Digite seu email">
-                    </div>
 
+                <!-- Campo Usuário -->
+                <div class="AreaEmailLogin">
+                    <label class="label">
+                        <span class="icon">
+                            <svg aria-hidden="true" xmlns="http://www.w3.org/2000/svg" width="30" height="30"
+                                fill="none" viewBox="0 0 24 24">
+                                <path stroke="currentColor" stroke-width="1.25"
+                                    d="M7 17v1a1 1 0 0 0 1 1h8a1 1 0 0 0 1-1v-1a3 3 0 0 0-3-3h-4a3 3 0 0 0-3 3Zm8-9a3 3 0 1 1-6 0 3 3 0 0 1 6 0Z">
+                                </path>
+                            </svg>
+                        </span>
+                        <input type="text" class="input" name="usuario" placeholder="Usuário" autocomplete="username" />
+                    </label>
                 </div>
+
+                <!-- Campo Senha -->
                 <div class="AreaSenhaLogin">
-                    <label for="senha" class="emailText">Senha</label>
-                    <div class="input">
-                        <span class="icon">🔒</span>
-                        <input type="password" id="senha" name="senha" placeholder="Digite sua senha">
-                        <button type="button" class="verSenha">👁️‍🗨️</button>
-                    </div>
+                    <label class="label">
+                        <span class="icon">
+                            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="size-6">
+                                <path stroke-linecap="round" stroke-linejoin="round" d="M2.036 12.322a1.012 1.012 0 0 1 0-.639C3.423 7.51 7.36 4.5 12 4.5c4.638 0 8.573 3.007 9.963 7.178.07.207.07.431 0 .639C20.577 16.49 16.64 19.5 12 19.5c-4.638 0-8.573-3.007-9.963-7.178Z" />
+                                <path stroke-linecap="round" stroke-linejoin="round" d="M15 12a3 3 0 1 1-6 0 3 3 0 0 1 6 0Z" />
+                              </svg>
+                              
+                        </span>
+                        <input type="password" class="input" name="senha" placeholder="Senha" autocomplete="current-password" />
+                    </label>
                 </div>
+
             </div>
+
             <div class="esqueceuSenhaEBotaoLogin">
                 <button type="submit" class="botaoLogin">
                     Entrar
                 </button>
-                <a href="" class="esqueceuSenha">
-                    Esqueceu sua senha?
-                </a>
+                <a href="#" class="esqueceuSenha">Esqueceu sua senha?</a>
             </div>
 
-
         </div>
-
-
-
-
     </section>
 </body>
 
