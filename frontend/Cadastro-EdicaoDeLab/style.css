@@ -10,6 +10,8 @@ header{
     background-color: rgb(255, 255, 255);
     border: 1px solid rgb(240, 240, 240);
     align-items: center;
+    justify-content: space-between;
+    padding: 10px;
 }
 #icon{
     height: 48px;
@@ -18,5 +20,9 @@ header{
 #pessoinha{
     height: 43px;
     width: 43px;
-
+}
+.atalhos{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
 }
