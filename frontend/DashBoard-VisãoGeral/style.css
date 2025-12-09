@@ -1,0 +1,90 @@
+* {
+    margin: 0;
+    box-sizing: border-box;
+}
+header{
+    display: flex;
+    flex-direction: row;
+    width:100vw;
+    height:10vh ;
+    background-color: rgb(255, 255, 255);
+    border: 1px solid rgb(240, 240, 240);
+    align-items: center;
+    justify-content: space-between;
+    padding: 10px;
+}
+body{
+    background-color: rgb(236, 236, 236);;
+}
+#icon{
+    height: 48px;
+    width: 48px;
+}
+#pessoinha{
+    height: 43px;
+    width: 43px;
+}
+.nav{
+    gap: 60px;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+}
+.direita-nav{
+    width: 450px;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+}
+.nav-selecionada{
+    font-size: large;
+    color: rgb(0, 97, 243);
+}
+a {
+    text-decoration: none;
+    color: black;
+  }
+.barraCadastro{
+    margin: 20px;
+    width: 95vw;
+    height: 100vh;
+    background-color: white;
+    border-radius: 10px;
+    padding: 20px;
+}
+.localizacao{
+    margin: 20px;
+    height: 60px;
+    width: 125px;
+    background-color: white;
+    border-radius: 10px;
+
+}
+.graficosVisao{
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    gap: 30px;
+    width: 92vw;
+    height: 27vh;
+}
+.corpoInfosGrafico{
+    display: flex;
+    padding: 10px;
+    flex-direction: column;
+    align-items: center;
+    width: 75vw;
+    height: 25vh;
+    background-color: rgb(236, 236, 236);;
+    border-radius: 12px;
+}
+.iconUp{
+    width: 20px;
+    height: 20px;
+}
+.direcaoIconUp{
+    display: flex;
+    flex-direction: row;
+    gap: 3px;
+}
