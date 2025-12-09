@@ -4,9 +4,96 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="../global.css">
     <title>DashBoard-VisãoGeral</title>
 </head>
+<header>
+    <div class="icon">
+        <img id="icon" src="./icon.png" alt="">
+    </div>
+   <div class="direita-nav">
+    <div class="nav">
+        <a href="/frontend/DashBoard-VisãoGeral/index.html">
+            <p class="nav-selecionada">DashBoard</p>
+        </a>
+        <a href="/frontend/Cadastro-EdicaoDeLab/index.html">
+            <p>Laboratórios</p>
+        </a>
+        <a href="/frontend/Auditorias/index.html">
+            <p>Auditorias</p>
+        </a>
+    </div>
+    <div>
+        <a href="/frontend/TelaLogin/index.html">
+            <img id="pessoinha" src="./pessoinha.png" alt="">
+        </a>
+    </div>
+   </div>
+</header>
 <body>
-    <a href="/Laboratory-Management-System-and-5S/frontend/Cadastro-EdicaoDeLab/index.html">Clique aqui</a>
+    <section class="localizacao">
+        <div style="padding: 8px;">
+            <p>DashBoard</p>
+            <h3>Visão Geral</h3>
+        </div>
+    </section> 
+    <section class="barraCadastro">
+        <div class="graficosVisao">
+            <div class="corpoInfosGrafico">
+                <p>Total de Laboratórios</p>
+                <br>
+                <h4>12</h4>
+                <br>
+                <div class="direcaoIconUp" style="color: green;">
+                    <svg class="iconUp" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="size-6">
+                        <path stroke-linecap="round" stroke-linejoin="round" d="M2.25 18 9 11.25l4.306 4.306a11.95 11.95 0 0 1 5.814-5.518l2.74-1.22m0 0-5.94-2.281m5.94 2.28-2.28 5.941" />
+                      </svg> 
+                    <p>+2 Este mês</p>
+                </div>
+            </div> 
+            <div class="corpoInfosGrafico">
+                <p>Conformidade Média</p>
+                <br>
+                <h4>88%</h4>
+                <br>
+                <div class="direcaoIconUp" style="color: red;">
+                    <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="size-6">
+                        <path stroke-linecap="round" stroke-linejoin="round" d="M2.25 6 9 12.75l4.286-4.286a11.948 11.948 0 0 1 4.306 6.43l.776 2.898m0 0 3.182-5.511m-3.182 5.51-5.511-3.181" />
+                      </svg>
+                      <p>-1.5%</p>
+                </div>
+            </div>
+            <div class="corpoInfosGrafico">
+                <p>Auditorias Pendentes</p>
+                <br>
+                <h4>3</h4>
+                <br>
+                <div class="direcaoIconUp" style="color: rgb(255, 190, 48);">
+                    <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="size-6">
+                        <path stroke-linecap="round" stroke-linejoin="round" d="M16.023 9.348h4.992v-.001M2.985 19.644v-4.992m0 0h4.992m-4.993 0 3.181 3.183a8.25 8.25 0 0 0 13.803-3.7M4.031 9.865a8.25 8.25 0 0 1 13.803-3.7l3.181 3.182m0-4.991v4.99" />
+                      </svg>
+                      <p>Aguardando</p>
+                </div>
+            </div>
+            <div class="corpoInfosGrafico">
+                <p>Não Conformidades</p>
+                <br>
+                <h4>5</h4>
+                <br>
+                <div class="direcaoIconUp" style="color: red;">
+                    <svg class="iconUp" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="size-6">
+                        <path stroke-linecap="round" stroke-linejoin="round" d="M2.25 18 9 11.25l4.306 4.306a11.95 11.95 0 0 1 5.814-5.518l2.74-1.22m0 0-5.94-2.281m5.94 2.28-2.28 5.941" />
+                      </svg> 
+                      <p>+10%</p>
+                </div>
+            </div>
+
+        </div>
+
+
+
+
+    </section>
+    
 </body>
 </html>
