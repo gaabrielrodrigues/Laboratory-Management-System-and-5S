@@ -1,11 +1,14 @@
 const db = require('../db.js')
 
-
 exports.getLogin = async (req, res) => {
     const {
         user,
         senha,
     } = req.body
+
+    if (!matricula || !senha) {
+        return res.status(400).json({ message: "Preencha matrícula e senha." });
+    }
 
     try {
         const result = await db.query('SELCT user, senha FROM usuario WHERE user = ? AND senha = ?', [user,senha])
