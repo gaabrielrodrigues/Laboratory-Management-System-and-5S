@@ -1,36 +1,35 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="pt-BR">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cadastro e Listagem de Laboratórios</title>
     <link rel="stylesheet" href="style.css">
-    <link rel="stylesheet" href="../global.css">
-    <title>Cadastro e Edição de Laboratórios</title>
 </head>
 <header>
     <a href="/frontend/DashBoard-VisãoGeral/index.html">
         <div class="icon">
-            <img id="icon" src="./icon.png" alt="">
+            <img id="icon" src="./icon.png" alt="Ícone">
         </div>
     </a>
-   <div class="direita-nav">
-    <div class="nav">
-        <a href="/frontend/DashBoard-VisãoGeral/index.html">
-            <p>DashBoard</p>
-        </a>
-        <a href="">
-            <p class="nav-selecionada" >Laboratórios</p>
-        </a>
-        <a href="/frontend/Auditorias/index.html">
-            <p>Auditorias</p>
-        </a>
+    <div class="direita-nav">
+        <div class="nav">
+            <a href="/frontend/DashBoard-VisãoGeral/index.html">
+                <p>DashBoard</p>
+            </a>
+            <a href="#">
+                <p class="nav-selecionada">Laboratórios</p>
+            </a>
+            <a href="/frontend/Auditorias/index.html">
+                <p>Auditorias</p>
+            </a>
+        </div>
+        <div>
+            <a href="/frontend/TelaLogin/index.html">
+                <img id="pessoinha" src="./pessoinha.png" alt="Ícone do Usuário">
+            </a>
+        </div>
     </div>
-    <div>
-        <a href="/frontend/TelaLogin/index.html">
-            <img id="pessoinha" src="./pessoinha.png" alt="">
-        </a>
-    </div>
-   </div>
 </header>
 <body>
     <div class="localizacao">
@@ -39,9 +38,147 @@
             <h3>Cadastrar Laboratório</h3>
         </div>
     </div>
-    <div class="barraCadastro">
-
-    </div>
     
+    <div class="barraCadastro">
+        <form id="cadastroLabForm">
+            
+            <div class="form-group">
+                <label for="nome">Nome do Laboratório</label>
+                <input type="text" id="nome" name="nome" placeholder="Ex: Laboratório de Mecânica" required>
+            </div>
+
+            <div class="form-group">
+                <label for="localizacao">Localização</label>
+                <input type="text" id="localizacao" name="localizacao" placeholder="Ex: Bloco C, Sala 201" required>
+            </div>
+
+            <div class="form-group">
+                <label for="coordenador">Coordenador Responsável</label>
+                <input type="text" id="coordenador" name="coordenador_responsavel" placeholder="Ex: João da Silva" required>
+            </div>
+
+            <button type="submit" class="btn-cadastrar">Cadastrar Laboratório</button>
+        </form>
+
+        <div id="feedbackMessage"></div>
+    </div>
+
+    <div id="listaLaboratorios">
+        <h3>Laboratórios Cadastrados</h3>
+        <p id="loadingMessage">Carregando laboratórios...</p>
+        </div>
+    
+    <script>
+        const API_BASE_URL = 'http://localhost:3000/lab';
+        const labsContainer = document.getElementById('listaLaboratorios');
+
+        // Função para buscar e exibir laboratórios
+        async function fetchLabs() {
+            labsContainer.innerHTML = '<h3>Laboratórios Cadastrados</h3><p id="loadingMessage">Carregando laboratórios...</p>';
+            
+            try {
+                const response = await fetch(API_BASE_URL, {
+                    method: 'GET',
+                    headers: { 'Content-Type': 'application/json' },
+                });
+
+                if (response.ok) {
+                    const labs = await response.json();
+                    renderLabsTable(labs);
+                } else if (response.status === 404) {
+                    labsContainer.innerHTML = '<h3>Laboratórios Cadastrados</h3><p>Nenhum laboratório encontrado.</p>';
+                } else {
+                    labsContainer.innerHTML = '<h3>Laboratórios Cadastrados</h3><p class="error">Erro ao carregar dados dos laboratórios.</p>';
+                }
+
+            } catch (error) {
+                console.error('Erro ao buscar laboratórios:', error);
+                labsContainer.innerHTML = '<h3>Laboratórios Cadastrados</h3><p class="error">Erro de conexão com a API. Verifique o servidor.</p>';
+            }
+        }
+        
+        // Função para construir a tabela HTML
+        function renderLabsTable(labs) {
+            let tableHTML = `<table class="labs-table">
+                <thead>
+                    <tr>
+                        <th>ID</th>
+                        <th>Nome</th>
+                        <th>Localização</th>
+                        <th class="hide-on-mobile">Coordenador</th>
+                    </tr>
+                </thead>
+                <tbody>`;
+            
+            labs.forEach(lab => {
+                tableHTML += `
+                    <tr>
+                        <td>${lab.id}</td>
+                        <td>${lab.nome}</td>
+                        <td>${lab.localizacao}</td>
+                        <td class="hide-on-mobile">${lab.coordenador_responsavel}</td>
+                    </tr>
+                `;
+            });
+
+            tableHTML += `</tbody></table>`;
+            
+            labsContainer.innerHTML = '<h3>Laboratórios Cadastrados</h3>' + tableHTML;
+        }
+
+        // --- Lógica de Cadastro ---
+        document.getElementById('cadastroLabForm').addEventListener('submit', async (event) => {
+            event.preventDefault();
+
+            const nome = document.getElementById('nome').value;
+            const localizacao = document.getElementById('localizacao').value;
+            const coordenador_responsavel = document.getElementById('coordenador').value;
+            const feedbackElement = document.getElementById('feedbackMessage');
+            
+            feedbackElement.textContent = '';
+            feedbackElement.className = '';
+
+            const urlAPI = `${API_BASE_URL}/cadastrar`;
+            const dadosLaboratorio = { nome, localizacao, coordenador_responsavel };
+
+            try {
+                const response = await fetch(urlAPI, {
+                    method: 'POST',
+                    headers: { 'Content-Type': 'application/json' },
+                    body: JSON.stringify(dadosLaboratorio),
+                });
+
+                if (response.ok) {
+                    const data = await response.json();
+                    feedbackElement.textContent = data.message || "Laboratório cadastrado com sucesso!";
+                    feedbackElement.classList.add('success');
+                    
+                    document.getElementById('cadastroLabForm').reset();
+                    
+                    // Atualiza a lista após o cadastro
+                    fetchLabs(); 
+
+                } else {
+                    let errorMessage = 'Falha ao cadastrar laboratório.';
+                    try {
+                        const errorData = await response.json();
+                        errorMessage = errorData.message || errorMessage;
+                    } catch (e) {
+                        errorMessage = `Erro (${response.status}): O servidor não retornou uma resposta válida.`;
+                    }
+                    
+                    feedbackElement.textContent = errorMessage;
+                    feedbackElement.classList.add('error');
+                }
+
+            } catch (error) {
+                feedbackElement.textContent = 'Erro de conexão com a API.';
+                feedbackElement.classList.add('error');
+            }
+        });
+
+        // 5. Chamada inicial da função de listagem ao carregar a página
+        document.addEventListener('DOMContentLoaded', fetchLabs);
+    </script>
 </body>
 </html>
